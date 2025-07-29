@@ -193,7 +193,8 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { noremap = true, silent = true, desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-h>', '<C-h>', { noremap = true, silent = true, desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
@@ -459,14 +460,6 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      
-      -- 只保留 node_modules 搜索功能，其他搜索功能使用 Snacks
-      vim.keymap.set('n', '<leader>sm', function()
-        require('telescope').extensions.node_modules.list {
-          search_dirs = { './node_modules', '../node_modules', '../../node_modules' },
-          depth = 2, -- 限制搜索深度
-        }
-      end, { desc = '[S]earch node_[M]odules' })
     end,
   },
 
@@ -863,25 +856,47 @@ require 'custom.terminal_migration_test'
 
 -- ===== 快速访问快捷键 (使用 Snacks) =====
 -- 智能文件查找
-vim.keymap.set('n', '<leader><space>', function() Snacks.picker.smart() end, { desc = '⚡ 智能查找文件' })
+vim.keymap.set('n', '<leader><space>', function()
+  Snacks.picker.smart()
+end, { desc = '⚡ 智能查找文件' })
 
 -- 缓冲区快速切换
-vim.keymap.set('n', '<leader>,', function() Snacks.picker.buffers() end, { desc = '📋 缓冲区列表' })
+vim.keymap.set('n', '<leader>,', function()
+  Snacks.picker.buffers()
+end, { desc = '📋 缓冲区列表' })
 
 -- 当前缓冲区搜索
-vim.keymap.set('n', '<leader>/', function() Snacks.picker.lines() end, { desc = '🔍 当前缓冲区搜索' })
+vim.keymap.set('n', '<leader>/', function()
+  Snacks.picker.lines()
+end, { desc = '🔍 当前缓冲区搜索' })
 
 -- Git 相关快捷键
-vim.keymap.set('n', '<leader>gb', function() Snacks.picker.git_branches() end, { desc = '🌿 Git 分支' })
-vim.keymap.set('n', '<leader>gl', function() Snacks.picker.git_log() end, { desc = '📜 Git 日志' })
-vim.keymap.set('n', '<leader>gs', function() Snacks.picker.git_status() end, { desc = '📊 Git 状态' })
-vim.keymap.set('n', '<leader>gf', function() Snacks.picker.git_files() end, { desc = '📁 Git 文件' })
+vim.keymap.set('n', '<leader>gb', function()
+  Snacks.picker.git_branches()
+end, { desc = '🌿 Git 分支' })
+vim.keymap.set('n', '<leader>gl', function()
+  Snacks.picker.git_log()
+end, { desc = '📜 Git 日志' })
+vim.keymap.set('n', '<leader>gs', function()
+  Snacks.picker.git_status()
+end, { desc = '📊 Git 状态' })
+vim.keymap.set('n', '<leader>gf', function()
+  Snacks.picker.git_files()
+end, { desc = '📁 Git 文件' })
 
 -- LSP 导航快捷键
-vim.keymap.set('n', 'gd', function() Snacks.picker.lsp_definitions() end, { desc = '🎯 转到定义' })
-vim.keymap.set('n', 'gr', function() Snacks.picker.lsp_references() end, { desc = '🔗 查找引用' })
-vim.keymap.set('n', 'gI', function() Snacks.picker.lsp_implementations() end, { desc = '🔧 转到实现' })
-vim.keymap.set('n', 'gy', function() Snacks.picker.lsp_type_definitions() end, { desc = '📝 类型定义' })
+vim.keymap.set('n', 'gd', function()
+  Snacks.picker.lsp_definitions()
+end, { desc = '🎯 转到定义' })
+vim.keymap.set('n', 'gr', function()
+  Snacks.picker.lsp_references()
+end, { desc = '🔗 查找引用' })
+vim.keymap.set('n', 'gI', function()
+  Snacks.picker.lsp_implementations()
+end, { desc = '🔧 转到实现' })
+vim.keymap.set('n', 'gy', function()
+  Snacks.picker.lsp_type_definitions()
+end, { desc = '📝 类型定义' })
 
 -- 重定向 vim.notify 到 Snacks notifier
 vim.defer_fn(function()

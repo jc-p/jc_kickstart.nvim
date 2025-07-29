@@ -60,8 +60,8 @@ vim.api.nvim_create_autocmd('InsertLeave', {
       -- 用一个全局变量存储之前的语言
       PREVIOUS_IM_CODE_MAC = string.gsub(out.stdout, '\n', '')
     end)
-    -- vim.cmd ":silent :!macism com.apple.keylayout.ABC"
-    vim.cmd ':silent :!macism com.tencent.inputmethod.wetype.pinyin'
+    vim.cmd ":silent :!macism com.apple.keylayout.ABC"
+    -- vim.cmd ':silent :!macism com.tencent.inputmethod.wetype.pinyin'
   end,
 })
 

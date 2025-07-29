@@ -22,7 +22,7 @@ return {
     },
     auto_session_use_git_branch = true,
     -- 自定义保存前后钩子
-    pre_save_cmds = { 'Neotree close' }, -- 保存前关闭 Neo-tree
+    -- pre_save_cmds = { 'Neotree close' }, -- 保存前关闭 Neo-tree
     post_restore_cmds = {}, -- 恢复后执行的命令
     -- 错误处理配置
     continue_restore_on_error = true, -- 即使有错误也继续加载会话

@@ -1,10 +1,10 @@
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
--- Neo-tree 已禁用，使用 snacks.explorer 替代
+-- Neo-tree 文件浏览器插件
 return {
-  'nvim-neo-tree/neo-tree.nvim',
-  enabled = false, -- 禁用以避免与 snacks.explorer 冲突
+    'nvim-neo-tree/neo-tree.nvim',
+    enabled = true, -- 重新启用 neo-tree
   version = '*',
   dependencies = {
     'nvim-lua/plenary.nvim',

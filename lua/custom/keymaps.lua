@@ -89,6 +89,7 @@ keymap("n", "<leader>[[", ":tabprevious<CR>", { desc = "上一个标签页" })
 keymap("n", "<leader>ev", ":e $MYVIMRC<CR>", { desc = "编辑 Neovim 配置文件" })
 keymap("n", "<leader>ek", ":e ~/.config/nvim/lua/custom/keymaps.lua<CR>", { desc = "编辑快捷键配置" })
 keymap("n", "<leader>ep", ":e ~/.config/nvim/lua/custom/plugins/snacks.lua<CR>", { desc = "编辑插件snacks配置" })
+keymap("n", "<leader>ep", ":e ~/.config/wezterm/wezterm.lua", { desc = "编辑插件wezterm配置" })
 
 -- 快速重载配置
 keymap("n", "<leader>so", ":source $MYVIMRC<CR>", { desc = "重新加载配置文件" })
